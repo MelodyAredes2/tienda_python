@@ -20,7 +20,7 @@ document.getElementById('header').innerHTML = `<nav class="navbar navbar-expand-
     </li>
   </ul>
   <form class="d-flex my-2 my-lg-0">
-    <input class="form-control me-sm-2" id='Search' type="text" placeholder="Search">
+    <input class="form-control me-sm-2" id='Search' type="text" placeholder="Buscar">
     <button class="btn btn-outline-success bg-succes my-2 my-sm-0" id='ButtonSearch' type="submit">Search</button>
   </form>
 </div>
