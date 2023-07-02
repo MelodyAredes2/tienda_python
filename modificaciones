@@ -1,0 +1,35 @@
+@app.route('/categorias', methods=['GET']) #get,delete,post, put}
+def get_categorias():
+	categorias = Categoria.query.all()
+	resultado = categorias_schema.dump(categorias)
+	return jsonify(resultado)
+
+@app.route('/categoria/<id>',methods=['GET'])
+def get_categoria(id):
+	categoria=Categoria.query.get(id)
+	return categorias_schema.jsonify(categoria)   # retorna el JSON de un producto recibido como parametro
+
+@app.route('/categorias/<id>',methods=['DELETE'])
+def delete_categoria(id):
+	categoria=Categoria.query.get(id)
+	db.session.delete(categoria)
+	db.session.commit()
+	return categorias_schema.jsonify(categoria)
+
+@app.route('/categorias',methods=['POST'])
+def create_categoria():
+	nombre = request.json['nombre']
+	nueva_categoria = Categoria(id,nombre)
+	db.session.add(nueva_categoria)
+	db.session.commit()
+	return jsonify(message='Categoria creada exitosamente')
+
+@app.route('/categorias/<id>',methods=['PUT'])
+def update_producto(id):
+	categoria = Categoria.query.get(id)
+	nombre = request.json['nombre']
+
+	categoria.nombre = nombre
+	
+	db.session.commit()
+	return producto_schema.jsonify(categoria)
