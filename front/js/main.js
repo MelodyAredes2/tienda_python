@@ -1,3 +1,4 @@
+import BASE_URL from "./config";
 
 document.getElementById('header').innerHTML = `<nav class="navbar navbar-expand-sm navbar-light bg-white">
 <div class="container">
@@ -30,7 +31,7 @@ document.getElementById('header').innerHTML = `<nav class="navbar navbar-expand-
 document.querySelector('body').classList.add('bg-info')
 
 
-const url = 'http://127.0.0.1:5000/productos';
+const url = `${BASE_URL}/productos`;
 let products = [];
 let id = '';
 let found = false;

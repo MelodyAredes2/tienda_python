@@ -1,10 +1,12 @@
+import BASE_URL from "./config";
+
 const {createApp} = Vue;
 
 createApp({
     data(){
         return{
             productos: [],
-            url: 'http://127.0.0.1:5000/productos',
+            url: `${BASE_URL}/productos`,
             cargando: true,
             error: false
         }

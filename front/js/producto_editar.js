@@ -1,5 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const productoId = urlParams.get('id');
+import BASE_URL from "./config";
 
 const {createApp} = Vue;
 
@@ -12,7 +13,7 @@ createApp({
                     stock: '',
                     imagen: ''
             },
-            url: `http://127.0.0.1:5000/productos/${productoId}`,
+            url: `${BASE_URL}/productos/${productoId}`,
             cargando: true,
             error: false
         }

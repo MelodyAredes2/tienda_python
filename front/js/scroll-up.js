@@ -17,7 +17,7 @@ btnScrollToTop.addEventListener('click', () => {
 
 // Muestra u oculta el botón dependiendo de la posición de desplazamiento de la página
 window.addEventListener('scroll', () => {
-  if (window.pageYOffset > 300) {
+  if (window.scrollY > document.documentElement.clientHeight) {
     btnScrollToTop.classList.add('show');
   } else {
     btnScrollToTop.classList.remove('show');
