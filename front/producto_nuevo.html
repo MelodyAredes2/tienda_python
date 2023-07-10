@@ -34,11 +34,13 @@
           <input type="number" name="stock" id="stock" v-model="producto.stock">
         </div>
         <div class="mb-3">
-          <label for="imagen">Imagen</label>
-          <input type="text" name="imagen" id="imagen" v-model="producto.imagen">
+          <label for="InputImagen" class="form-label">Imagen del producto:</label><br>
+          <img class="pb-3" :src="producto.imagen" :alt="producto.nombre" width="80" height="80">
+          <input type="text" class="form-control" id="Imagen" v-model="producto.imagen" aria-describedby="Imagen del producto">
         </div>
           <div class="text-center">
-            <button type="button" class="btn btn-success" v-on:click="createproduct">Crear</button>
+            <button type="button" class="btn btn-success me-2" v-on:click="createproduct">Crear</button>
+            <a href="./productos.html" class="btn btn-danger">Cancelar</a>
           </div>
           
       </form>

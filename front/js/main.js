@@ -1,4 +1,3 @@
-import BASE_URL from "./config";
 
 document.getElementById('header').innerHTML = `<nav class="navbar navbar-expand-sm navbar-light bg-white">
 <div class="container">
@@ -31,31 +30,27 @@ document.getElementById('header').innerHTML = `<nav class="navbar navbar-expand-
 document.querySelector('body').classList.add('bg-info')
 
 
-const url = `${BASE_URL}/productos`;
+const url = `http://127.0.0.1:5000/productos`;
 let products = [];
 let id = '';
 let found = false;
 let i = 0;
 
 async function SearchProduct() {
-  let searchInput = document.getElementById('Search');
-  let searchValue = searchInput.value;
+  let searchInput = document.getElementById('Search'); // selecciona el input
+  let searchValue = searchInput.value; // obtiene el valor introducido en el input
 
   await fetchApi(url);
-  for (const p of products) {
-    console.log('nombres');
-    console.log(p.nombre);
-    if (p.nombre.toLowerCase() === searchValue.toLowerCase()) {
-      id = p.id;
-      found = true;
+  for (const p of products) { //bucle for que busca entre todos los productos
+    if (p.nombre.toLowerCase() === searchValue.toLowerCase()) { // compara el nombre del producto con el nombre a buscar
+      id = p.id; // si lo encuentra obtiene el id
+      found = true; // indica que se encontro
       break; // Sale del bucle cuando se encuentra una coincidencia
     }
   }
   if (found) {
-    window.location.href = "producto.html?id=" + id;
+    window.location.href = "producto.html?id=" + id; // Si lo encuentra te envia a la pagina del producto pasando la id por parametro
   } else {
-    console.log(searchValue)
-    console.log("Producto no encontrado");
   }
 }
 
